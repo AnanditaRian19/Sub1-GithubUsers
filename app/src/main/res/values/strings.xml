@@ -95,16 +95,16 @@
     </string-array>
 
     <string-array name="avatar">
-        <item>@drawable/user1</item>
-        <item>@drawable/user2</item>
-        <item>@drawable/user3</item>
-        <item>@drawable/user4</item>
-        <item>@drawable/user5</item>
-        <item>@drawable/user6</item>
-        <item>@drawable/user7</item>
-        <item>@drawable/user8</item>
-        <item>@drawable/user9</item>
-        <item>@drawable/user10</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611777-5f8b6200-bfd9-11ea-8c49-681599e3d556.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611781-60bc8f00-bfd9-11ea-82da-216710880d14.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611784-61552580-bfd9-11ea-8ff2-94e75a0af201.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611785-61edbc00-bfd9-11ea-88a4-87342a646b06.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611791-62865280-bfd9-11ea-8d4b-d7b64b304cf5.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611792-631ee900-bfd9-11ea-9597-d0f1ea97453b.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611794-63b77f80-bfd9-11ea-8702-50f26efcce8f.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611795-64501600-bfd9-11ea-9e7d-0eaace06956f.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611799-64e8ac80-bfd9-11ea-81df-3ef0ec1861f2.png</item>
+        <item>https://user-images.githubusercontent.com/65359346/86611801-65814300-bfd9-11ea-8d8b-931edf28b763.png</item>
     </string-array>
 
 </resources>

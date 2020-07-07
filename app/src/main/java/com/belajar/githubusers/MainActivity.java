@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.belajar.githubusers.adapter.UsersAdapter;
@@ -53,5 +54,25 @@ public class MainActivity extends AppCompatActivity {
         rvUser.setLayoutManager(new LinearLayoutManager(this));
         UsersAdapter usersAdapter = new UsersAdapter(list);
         rvUser.setAdapter(usersAdapter);
+
+        usersAdapter.setOnItemClickedCallback(new UsersAdapter.OnItemClickedCallback() {
+            @Override
+            public void onItemClicked(Users data) {
+                showSelectedItem(data);
+            }
+        });
+    }
+
+    private void showSelectedItem(Users users) {
+        Users user = new Users();
+        user.setAvatar(users.getAvatar());
+        user.setName(users.getName());
+        user.setUsername(users.getUsername());
+        user.setFollower(users.getFollower());
+        user.setFollowing(users.getFollowing());
+
+        Intent intent = new Intent(MainActivity.this, DetailUsers.class);
+        intent.putExtra(DetailUsers.EXTRA_USERS, user);
+        startActivity(intent);
     }
 }

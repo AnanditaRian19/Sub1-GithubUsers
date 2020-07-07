@@ -20,9 +20,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHolder> {
 
     private ArrayList<Users> listUsers;
+    private UsersAdapter.OnItemClickedCallback onItemClickedCallback;
 
     public UsersAdapter(ArrayList<Users> user) {
         this.listUsers = user;
+    }
+
+    public void setOnItemClickedCallback(OnItemClickedCallback onItemClickedCallback) {
+        this.onItemClickedCallback = onItemClickedCallback;
     }
 
 
@@ -46,6 +51,13 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
         holder.tvUsername.setText(user.getUsername());
         holder.tvFollower.setText(user.getFollower());
         holder.tvFollowing.setText(user.getFollowing());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickedCallback.onItemClicked(listUsers.get(holder.getAdapterPosition()));
+            }
+        });
     }
 
     @Override
@@ -65,5 +77,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
             tvFollower = itemView.findViewById(R.id.tv_follower);
             tvFollowing = itemView.findViewById(R.id.tv_following);
         }
+    }
+
+    public interface OnItemClickedCallback {
+        void onItemClicked(Users data);
     }
 }
