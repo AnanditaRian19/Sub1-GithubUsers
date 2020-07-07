@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DetailUsers">
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:src="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username" />
+
+    <TextView
+        android:id="@+id/tv_follower"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Follower" />
+
+    <TextView
+        android:id="@+id/tv_following"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Following" />
+
+</LinearLayout>
