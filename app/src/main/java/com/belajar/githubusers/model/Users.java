@@ -5,7 +5,16 @@ import android.os.Parcelable;
 
 public class Users implements Parcelable {
 
-    private String name, username, company, location, avatar, follower, following, repository;
+    private String name;
+    private String username;
+    private String company;
+    private String location;
+    private String avatar;
+    private String follower;
+    private String following;
+    private String repository;
+
+    private String email;
 
     public Users () {
 
@@ -20,6 +29,7 @@ public class Users implements Parcelable {
         follower = in.readString();
         following = in.readString();
         repository = in.readString();
+        email = in.readString();
     }
 
     @Override
@@ -32,6 +42,7 @@ public class Users implements Parcelable {
         dest.writeString(follower);
         dest.writeString(following);
         dest.writeString(repository);
+        dest.writeString(email);
     }
 
     @Override
@@ -50,6 +61,14 @@ public class Users implements Parcelable {
             return new Users[size];
         }
     };
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getName() {
         return name;

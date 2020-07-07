@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.belajar.githubusers.adapter.UsersAdapter;
 import com.belajar.githubusers.model.Users;
@@ -21,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        setContentView(R.layout.activity_main);
 
         rvUser = findViewById(R.id.rv_github_users);
         rvUser.setHasFixedSize(true);
@@ -35,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         String[] dataUsername = getResources().getStringArray(R.array.username);
         String[] dataFollower = getResources().getStringArray(R.array.followers);
         String[] dataFollowing = getResources().getStringArray(R.array.following);
+        String[] dataLocation = getResources().getStringArray(R.array.location);
+        String[] dataCompany = getResources().getStringArray(R.array.company);
+        String[] dataRepository = getResources().getStringArray(R.array.repository);
+        String[] dataEmail = getResources().getStringArray(R.array.email);
 
         ArrayList<Users> listuser = new ArrayList<>();
         for (int i = 0; i < dataName.length; i++) {
@@ -44,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
             users.setUsername(dataUsername[i]);
             users.setFollower(dataFollower[i]);
             users.setFollowing(dataFollowing[i]);
+            users.setLocation(dataLocation[i]);
+            users.setCompany(dataCompany[i]);
+            users.setRepository(dataRepository[i]);
+            users.setEmail(dataEmail[i]);
 
             listuser.add(users);
         }
@@ -70,9 +82,14 @@ public class MainActivity extends AppCompatActivity {
         user.setUsername(users.getUsername());
         user.setFollower(users.getFollower());
         user.setFollowing(users.getFollowing());
+        user.setRepository(users.getRepository());
+        user.setLocation(users.getLocation());
+        user.setCompany(users.getCompany());
+        user.setEmail(users.getEmail());
 
         Intent intent = new Intent(MainActivity.this, DetailUsers.class);
         intent.putExtra(DetailUsers.EXTRA_USERS, user);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

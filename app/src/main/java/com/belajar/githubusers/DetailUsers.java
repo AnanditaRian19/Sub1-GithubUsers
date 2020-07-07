@@ -3,6 +3,7 @@ package com.belajar.githubusers;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,13 +16,15 @@ import java.util.ArrayList;
 public class DetailUsers extends AppCompatActivity {
 
     public static final String EXTRA_USERS = "extra_users";
-    private String name, username, follower, following, avatar;
-    private TextView tvName, tvUsername, tvFollower, tvFollowing;
+    private TextView tvName, tvUsername, tvFollower, tvFollowing, tvLocation, tvCompany, tvRepository, tvEmail;
     private ImageView ivAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detail_users);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_detail_users);
 
         ivAvatar = findViewById(R.id.iv_avatar);
@@ -29,12 +32,12 @@ public class DetailUsers extends AppCompatActivity {
         tvUsername = findViewById(R.id.tv_username);
         tvFollower = findViewById(R.id.tv_follower);
         tvFollowing = findViewById(R.id.tv_following);
+        tvLocation = findViewById(R.id.tv_location);
+        tvCompany = findViewById(R.id.tv_company);
+        tvRepository = findViewById(R.id.tv_repository);
+        tvEmail = findViewById(R.id.tv_email);
 
         Users users = getIntent().getParcelableExtra(EXTRA_USERS);
-//        ArrayList<Users> users1 = this.getIntent().getParcelableArrayListExtra(EXTRA_USERS);
-
-//        String getAvatar = users.getAvatar();
-//        ivAvatar.setBackgroundResource(Integer.parseInt(getAvatar));
 
         Glide.with(DetailUsers.this)
                 .load(users.getAvatar())
@@ -52,16 +55,22 @@ public class DetailUsers extends AppCompatActivity {
         String getFollowing = users.getFollowing();
         tvFollowing.setText(getFollowing);
 
-//        name = users.get(0).getName();
-//        tvName.setText(name);
-//
-//        username = users.get(0).getUsername();
-//        tvUsername.setText(username);
-//
-//        follower = users.get(0).getFollower();
-//        tvFollower.setText(follower);
-//
-//        following = users.get(0).getUsername();
-//        tvFollowing.setText(following);
+        String getLocation = users.getLocation();
+        tvLocation.setText(getLocation);
+
+        String getComapny = users.getCompany();
+        tvCompany.setText(getComapny);
+
+        String getRepository = users.getRepository();
+        tvRepository.setText(getRepository);
+
+        String getEmail = users.getEmail();
+        tvEmail.setText(getEmail);
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

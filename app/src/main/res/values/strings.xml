@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">GithubUsers</string>
+    <string name="app_name">Github Users</string>
     <string name="title">Title</string>
     <string name="lorem_ipsum">Lorem Ipsum</string>
+    <string name="name">Rizki Rian Anandita</string>
+    <string name="username">AnanditaRian19</string>
+    <string name="location">Bandung, Jawa Barat</string>
+    <string name="company">Microsoft Indonesia</string>
+    <string name="email">rizkianandita19@gmail.com</string>
 
     <string-array name="username">
         <item>JakeWharton</item>
@@ -27,6 +32,19 @@
         <item>Budi Oktaviyan</item>
         <item>Hendi Santika</item>
         <item>Sidiq Permana</item>
+    </string-array>
+
+    <string-array name="email">
+        <item>jakewarton@gmail.com</item>
+        <item>sheharamit@roclketmail.com</item>
+        <item>romanguy@domapny.com</item>
+        <item>shrisbanes@gmail.com</item>
+        <item>davidmoytes@gmail.com</item>
+        <item>tamadaravi@gmail.com</item>
+        <item>denysetyo@gmail.com</item>
+        <item>budidoremi@hotmail.com</item>
+        <item>hendisantika@gmail.com</item>
+        <item>sidiqpermana@gmail.com</item>
     </string-array>
 
     <string-array name="location">
