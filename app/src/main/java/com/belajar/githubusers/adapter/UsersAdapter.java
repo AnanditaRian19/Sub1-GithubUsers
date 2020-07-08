@@ -1,11 +1,16 @@
 package com.belajar.githubusers.adapter;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.belajar.githubusers.R;
@@ -39,8 +44,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final UsersViewHolder holder, int position) {
-        Users user = listUsers.get(position);
+    public void onBindViewHolder(@NonNull final UsersViewHolder holder, final int position) {
+        final Users user = listUsers.get(position);
 
         Glide.with(holder.itemView.getContext())
                 .load(user.getAvatar())
@@ -58,6 +63,25 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
                 onItemClickedCallback.onItemClicked(listUsers.get(holder.getAdapterPosition()));
             }
         });
+
+        holder.tbFavorite.setChecked(false);
+        holder.tbFavorite.setBackgroundDrawable(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.ic_baseline_favorite));
+        holder.tbFavorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    holder.tbFavorite.setBackgroundDrawable(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.ic_baseline_favorite_click));
+                    Toast toast = Toast.makeText(holder.itemView.getContext(), "Favorite " + user.getName(), Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.show();
+                } else {
+                    holder.tbFavorite.setBackgroundDrawable(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.ic_baseline_favorite));
+                    Toast toast = Toast.makeText(holder.itemView.getContext(), "Unfavorite " + user.getName(), Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL,0,0);
+                    toast.show();
+                }
+            }
+        });
     }
 
     @Override
@@ -68,6 +92,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
     public class UsersViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvUsername, tvFollower, tvFollowing;
         CircleImageView ivAvatar;
+        ToggleButton tbFavorite;
 
         public UsersViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +101,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
             tvUsername = itemView.findViewById(R.id.tv_username);
             tvFollower = itemView.findViewById(R.id.tv_follower);
             tvFollowing = itemView.findViewById(R.id.tv_following);
+            tbFavorite = itemView.findViewById(R.id.tb_favorite);
         }
     }
 

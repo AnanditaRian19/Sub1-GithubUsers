@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:paddingStart="8dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:src="@drawable/bg_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -29,17 +40,19 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="8dp"
         android:alpha="0.5"
         android:background="@android:color/darker_gray"
-        app:layout_constraintTop_toBottomOf="@id/iv_avatar" />
+        app:layout_constraintTop_toBottomOf="@id/tv_follower" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_avatar"
         android:layout_width="65dp"
         android:layout_height="65dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/container"
         android:src="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,6 +64,7 @@
         android:layout_marginStart="16dp"
         android:fontFamily="serif"
         android:text="@string/title"
+        android:layout_marginTop="8dp"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/guideline"
@@ -123,5 +137,16 @@
         app:layout_constraintStart_toEndOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@id/tv_username" />
 
+    <ToggleButton
+        android:id="@+id/tb_favorite"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_baseline_favorite_click"
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintTop_toTopOf="@id/container"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@id/container" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
