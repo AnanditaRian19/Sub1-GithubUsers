@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.8dp"
         android:layout_marginTop="8dp"
-        android:alpha="0.5"
+        android:layout_marginStart="16dp"
         android:background="@android:color/darker_gray"
         app:layout_constraintTop_toBottomOf="@id/tv_follower" />
 
@@ -51,6 +51,7 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="@id/container"
         android:src="@android:color/darker_gray"

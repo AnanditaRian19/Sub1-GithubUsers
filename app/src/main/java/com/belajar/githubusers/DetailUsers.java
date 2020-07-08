@@ -34,9 +34,9 @@ public class DetailUsers extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_users);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        setContentView(R.layout.activity_detail_users);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         setContentView(R.layout.activity_detail_users);
         ActionBar actionBar = getSupportActionBar();
@@ -72,7 +72,6 @@ public class DetailUsers extends AppCompatActivity {
 //                    Toast toast = Toast.makeText(DetailUsers.this, "Favorite " + userrr.getName(),Toast.LENGTH_SHORT);
 //                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL,0,0);
 //                    toast.show();
-                    Toast.makeText(DetailUsers.this, "tes " + user.getName(), Toast.LENGTH_SHORT).show();
                 } else {
                     btnToggle.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_baseline_favorite));
 //                    Toast toast = Toast.makeText(DetailUsers.this, "Unfavorite " + userrr.getName(),Toast.LENGTH_SHORT);

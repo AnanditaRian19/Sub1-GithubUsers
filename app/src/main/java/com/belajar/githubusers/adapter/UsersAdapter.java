@@ -71,14 +71,16 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UsersViewHol
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     holder.tbFavorite.setBackgroundDrawable(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.ic_baseline_favorite_click));
-                    Toast toast = Toast.makeText(holder.itemView.getContext(), "Favorite " + user.getName(), Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL,0,0);
-                    toast.show();
+//                    Toast toast = Toast.makeText(holder.itemView.getContext(), "Favorite " + user.getName(), Toast.LENGTH_SHORT);
+//                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL,0,0);
+//                    toast.show();
+                    Toast.makeText(holder.itemView.getContext(),"Favorite " + user.getName(),Toast.LENGTH_SHORT).show();
                 } else {
                     holder.tbFavorite.setBackgroundDrawable(ContextCompat.getDrawable(holder.itemView.getContext(), R.drawable.ic_baseline_favorite));
-                    Toast toast = Toast.makeText(holder.itemView.getContext(), "Unfavorite " + user.getName(), Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL,0,0);
-                    toast.show();
+//                    Toast toast = Toast.makeText(holder.itemView.getContext(), "Unfavorite " + user.getName(), Toast.LENGTH_SHORT);
+//                    toast.setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL,0,0);
+//                    toast.show();
+                    Toast.makeText(holder.itemView.getContext(),"Unfavorite " + user.getName(),Toast.LENGTH_SHORT).show();
                 }
             }
         });
